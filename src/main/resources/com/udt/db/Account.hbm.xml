@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 21, 2012 6:50:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.udt.db.Account" table="account" catalog="test">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="40" not-null="true" />
+        </property>
+        <property name="passwordSalt" type="string">
+            <column name="password_salt" length="40" />
+        </property>
+        <property name="role" type="string">
+            <column name="role" length="40" />
+        </property>
+        <property name="registerTime" type="timestamp">
+            <column name="register_time" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
