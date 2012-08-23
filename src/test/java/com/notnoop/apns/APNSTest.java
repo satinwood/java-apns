@@ -37,6 +37,7 @@ public class APNSTest {
             String token = "1fab51a25e0d5ff1fa2033b64086d2fb76336c37cea239cf9b1ed2af3c9ab201";
             SimpleApnsNotification msg = new SimpleApnsNotification(token, payload_builder.build());
             service.push(msg);
+            System.out.println(msg.toString() + payload_builder.toString());
         } catch (NetworkIOException e) {
             e.printStackTrace();
         }

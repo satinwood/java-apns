@@ -39,6 +39,9 @@ import java.util.concurrent.LinkedBlockingQueue;
 import com.notnoop.apns.ApnsNotification;
 import com.notnoop.apns.ApnsService;
 import com.notnoop.exceptions.NetworkIOException;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class QueuedApnsService extends AbstractApnsService {
 
@@ -89,6 +92,17 @@ public class QueuedApnsService extends AbstractApnsService {
     }
 
     public void stop() {
+        for(int i=0;i<10;++i) {
+            if(queue.isEmpty()) {
+                break;
+            } else {
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(QueuedApnsService.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
         started.set(false);
         shouldContinue = false;
         thread.interrupt();

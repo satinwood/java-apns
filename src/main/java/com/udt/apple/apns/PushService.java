@@ -3,29 +3,44 @@
  * and open the template in the editor.
  */
 package com.udt.apple.apns;
-import com.udt.db.HibernateUtil;
-import com.udt.db.Observer;
-import java.util.List;
-import org.hibernate.Session;
+
+import com.notnoop.apns.*;
+import com.notnoop.apns.internal.QueuedApnsService;
+
 /**
  *
  * @author RTL
  */
 public class PushService {
-    public static void main(String[] args) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        List<Observer> result = session.createSQLQuery("select * from observer")
-                .addEntity(Observer.class).list();
-        for(Observer o : result) {
-            System.out.println("id : " + o.getObserverId());
-            System.out.println("\tname : " + o.getName());
-            System.out.println("\tgroup_id : " + o.getProductId());
-            System.out.println("\temail : " + o.getEmail());
+
+    private static QueuedApnsService service;
+
+    static {
+        try {
+            ApnsServiceBuilder servicebuilder = APNS.newService();
+            ApnsService apns = servicebuilder.withAppleDestination(true).withCert(ClassLoader.getSystemResource("apns_prod_ding1ding_cer.p12").getPath(), "uptops").build();
+            apns.testConnection();
+            service = new QueuedApnsService(apns);
+            //service = apns;
+            service.start();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        session.getTransaction().commit();
-        //session.close();       
-        
     }
-    
+
+    public static void push(String token, int badge, String body) {
+        try {
+            PayloadBuilder payload_builder = APNS.newPayload();
+            payload_builder.badge(badge).alertBody(body);
+            SimpleApnsNotification msg = new SimpleApnsNotification(token, payload_builder.build());
+            service.push(msg);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void stop() {
+        service.stop();
+    }
+            
 }
