@@ -12,3 +12,7 @@ release.properties
 .classpath
 .settings
 tags
+
+/src/test/resources/logback-test.xml
+/src/test/resources/apns_prod_ding1ding_cer.p12
+/src/test/resources/apns_prod_ding1ding_key.p12
