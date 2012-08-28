@@ -13,16 +13,16 @@ public class DeviceBind  implements java.io.Serializable {
      private Long id;
      private long accountId;
      private String token;
-     private byte type;
+     private String version;
      private Date time;
 
     public DeviceBind() {
     }
 
-    public DeviceBind(long accountId, String token, byte type, Date time) {
+    public DeviceBind(long accountId, String token, String type, Date time) {
        this.accountId = accountId;
        this.token = token;
-       this.type = type;
+       this.version = type;
        this.time = time;
     }
    
@@ -47,12 +47,12 @@ public class DeviceBind  implements java.io.Serializable {
     public void setToken(String token) {
         this.token = token;
     }
-    public byte getType() {
-        return this.type;
+    public String getVersion() {
+        return this.version;
     }
     
-    public void setType(byte type) {
-        this.type = type;
+    public void setVersion(String type) {
+        this.version = type;
     }
     public Date getTime() {
         return this.time;

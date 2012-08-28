@@ -14,8 +14,8 @@
         <property name="token" type="string">
             <column name="token" not-null="true" />
         </property>
-        <property name="type" type="byte">
-            <column name="type" not-null="true">
+        <property name="version" type="string">
+            <column name="version" not-null="true">
                 <comment>0:ios, 1:android, 2:Windows</comment>
             </column>
         </property>
