@@ -5,9 +5,9 @@
 package com.udt.notify;
 
 import com.udt.apple.apns.PushService;
-import com.udt.db.DeviceBind;
+import com.udt.db.DingDeviceBind;
 import com.udt.db.HibernateUtil;
-import com.udt.db.Push;
+import com.udt.db.DingPush;
 import com.udt.email.Email;
 import java.util.List;
 import org.hibernate.Session;
@@ -30,16 +30,16 @@ public class Notify {
     }
 
     public static void main(String[] args) {
-        List<Push> result = session.createSQLQuery("select * from push").addEntity(Push.class).list();
-        for (Push o : result) {
-            //sendMail(o);
-            sendAppleNotify(o);
+        List<DingPush> result = session.createSQLQuery("select * from ding_push").addEntity(DingPush.class).list();
+        for (DingPush o : result) {
+            sendMail(o);
+            //sendAppleNotify(o);
         }
         session.getTransaction().commit();
         //session.close();       
     }
 
-    public static void sendMail(Push o) {
+    public static void sendMail(DingPush o) {
         // send mail;
         String to_addr = o.getEmail();
         String from_addr = "no-reply@ding1ding.com";
@@ -64,12 +64,12 @@ public class Notify {
         Email.sendMail(to_addr, from_addr, subject, body);
     }
 
-    public static void sendAppleNotify(Push o) {
+    public static void sendAppleNotify(DingPush o) {
         String token;
         String payload = "[降价通知]" + o.getName();
-        List<DeviceBind> result = session.createSQLQuery("select * from device_bind where account_id = " + o.getAccountId())
-                .addEntity(DeviceBind.class).list();
-        for (DeviceBind device : result) {
+        List<DingDeviceBind> result = session.createSQLQuery("select * from ding_device_bind where account_id = " + o.getAccountId())
+                .addEntity(DingDeviceBind.class).list();
+        for (DingDeviceBind device : result) {
             token = device.getToken();
             PushService.push(token, 6, payload);
         }

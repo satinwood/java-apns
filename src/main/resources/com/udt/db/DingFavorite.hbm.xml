@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 19, 2012 4:22:43 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.udt.db.DingFavorite" table="ding_favorite" catalog="ding_test">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="class_" type="string">
+            <column name="class" length="64" not-null="true" />
+        </property>
+        <property name="groupId" type="int">
+            <column name="group_id" not-null="true" />
+        </property>
+        <property name="accountId" type="long">
+            <column name="account_id" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -4,17 +4,17 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://10.30.7.44:3306/test</property>
-    <property name="hibernate.connection.username">test</property>
-    <property name="hibernate.connection.password">test</property>
+    <property name="hibernate.connection.url">jdbc:mysql://10.30.7.44:3306/ding_test</property>
+    <property name="hibernate.connection.username">saj</property>
+    <property name="hibernate.connection.password">saj</property>
     <property name="hibernate.connection.CharSet">GBK</property>
     <property name="hibernate.current_session_context_class">thread</property>
-    <mapping resource="com/udt/db/Account.hbm.xml"/>
-    <mapping resource="com/udt/db/DeviceBind.hbm.xml"/>
-    <mapping resource="com/udt/db/AccountRegister.hbm.xml"/>
-    <mapping resource="com/udt/db/Favorite.hbm.xml"/>
-    <mapping resource="com/udt/db/Feedback.hbm.xml"/>
-    <mapping resource="com/udt/db/Observer.hbm.xml"/>
-    <mapping resource="com/udt/db/Push.hbm.xml"/>
+    <mapping resource="com/udt/db/DingAccountRegister.hbm.xml"/>
+    <mapping resource="com/udt/db/DingAccount.hbm.xml"/>
+    <mapping resource="com/udt/db/DingFeedback.hbm.xml"/>
+    <mapping resource="com/udt/db/DingObserver.hbm.xml"/>
+    <mapping resource="com/udt/db/DingFavorite.hbm.xml"/>
+    <mapping resource="com/udt/db/DingPush.hbm.xml"/>
+    <mapping resource="com/udt/db/DingDeviceBind.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
