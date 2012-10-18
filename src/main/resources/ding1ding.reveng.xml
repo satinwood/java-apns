@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
-  <schema-selection match-catalog="ding_test"/>
-  <table-filter match-name="ding_favorite"/>
-  <table-filter match-name="ding_observer"/>
-  <table-filter match-name="ding_push"/>
-  <table-filter match-name="ding_feedback"/>
-  <table-filter match-name="ding_device_bind"/>
+  <schema-selection match-catalog="ding_test"/>  
   <table-filter match-name="ding_account_register"/>
+  <table-filter match-name="ding_push"/>
+  <table-filter match-name="ding_observer"/>
+  <table-filter match-name="ding_favorite"/>
+  <table-filter match-name="ding_feedback"/>
+  <table-filter match-name="ding_ad"/>
+  <table-filter match-name="ding_device_bind"/>
   <table-filter match-name="ding_account"/>
 </hibernate-reverse-engineering>
