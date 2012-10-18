@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 18, 2012 5:16:15 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.udt.db.DingDeviceBind" table="ding_device_bind" catalog="ding_test">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="string">
+            <column name="version" length="16" not-null="true" />
+        </version>
+        <property name="accountId" type="long">
+            <column name="account_id" not-null="true" />
+        </property>
+        <property name="uuid" type="string">
+            <column name="uuid" length="64" not-null="true" />
+        </property>
+        <property name="token" type="string">
+            <column name="token" length="64" not-null="true" />
+        </property>
+        <property name="time" type="timestamp">
+            <column name="time" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

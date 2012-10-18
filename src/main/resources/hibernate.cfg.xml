@@ -9,12 +9,13 @@
     <property name="hibernate.connection.password">saj</property>
     <property name="hibernate.connection.CharSet">GBK</property>
     <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="com/udt/db/DingDeviceBind.hbm.xml"/>
     <mapping resource="com/udt/db/DingAccountRegister.hbm.xml"/>
     <mapping resource="com/udt/db/DingAccount.hbm.xml"/>
     <mapping resource="com/udt/db/DingFeedback.hbm.xml"/>
+    <mapping resource="com/udt/db/DingAd.hbm.xml"/>
     <mapping resource="com/udt/db/DingObserver.hbm.xml"/>
     <mapping resource="com/udt/db/DingFavorite.hbm.xml"/>
     <mapping resource="com/udt/db/DingPush.hbm.xml"/>
-    <mapping resource="com/udt/db/DingDeviceBind.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
